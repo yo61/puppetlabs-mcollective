@@ -35,7 +35,9 @@ class mcollective::server::config {
     mode   => '0700',
   }
 
-  if $mcollective::middleware_ssl or $mcollective::securityprovider == 'ssl' {
+  if $mcollective::middleware_ssl
+    or $mcollective::securityprovider == 'ssl'
+    or $mcollective::securityprovider == 'aes_security' {
     file { "${mcollective::confdir}/ca.pem":
       owner  => 'root',
       group  => '0',

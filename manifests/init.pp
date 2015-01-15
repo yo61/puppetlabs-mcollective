@@ -55,12 +55,16 @@ class mcollective (
   $client_loglevel     = 'warn',
   $client_package      = 'mcollective-client',
 
-  # ssl certs
+  # ssl certs, also used for aes_security provider
   $ssl_ca_cert          = undef,
   $ssl_server_public    = undef,
   $ssl_server_private   = undef,
   $ssl_client_certs     = 'puppet:///modules/mcollective/empty',
   $ssl_client_certs_dir = undef, # default dependent on $confdir
+
+  # aes_security provider-specific settings
+  $aes_enforce_ttl = true,
+
 ) inherits mcollective::defaults {
 
   # Because the correct default value for several parameters is based on another
